@@ -1,0 +1,43 @@
+def recur(vis, ans, tiles, se): #a recursive function
+	#ans is a string representing the current combination of tiles being considered
+	
+    se.setdefault(ans, 1) if ans else None
+	#se.setdefault(ans, 1): this method checks if ans is already a key in the dictionary se. If it is, it returns the value associated with ans. If ans is not in se, it sets se[ans] to 1 and returns 1
+	#if ans: this conditional expression ensures that se.setdefault(ans, 1) is only executed if ans is non-empty
+	#else None: if ans is empty, None is returned. This ensures that the function does not perform any additional action if ans is empty
+
+	[vis.__setitem__(i, True) or recur(vis, ans + tiles[i], tiles, se) or vis.__setitem__(i, False) for i in range(len(tiles)) if not vis[i]]
+#this is how this part was before reducing it:	
+#	for i in range(len(tiles)):
+#		if (vis[i]):
+#			continue
+#		vis[i] = True
+#		
+#		recur(vis, ans + tiles[i], tiles, se)
+#		vis[i] = False
+
+#here is an explaination of the reduced line:
+#	[...]: This denotes a list comprehension, which is used to generate a list based on the expression inside the square brackets.
+#	vis.__setitem__(i, True) or recur(vis, ans + tiles[i], tiles, se) or vis.__setitem__(i, False): This is the expression inside the list comprehension. It consists of three parts separated by or operators:
+#	vis.__setitem__(i, True): This sets the i-th element of the vis list to True, effectively marking the tile at index i as visited.
+#	recur(vis, ans + tiles[i], tiles, se): This recursively calls the recur function with the updated combination (ans + tiles[i]).
+#	vis.__setitem__(i, False): This sets the i-th element of the vis list back to False, effectively marking the tile at index i as not visited again.
+#	for i in range(len(tiles)): This specifies the loop over the indices of the tiles string.
+#	if not vis[i]: This condition ensures that the expression inside the list comprehension is only executed for indices where the tile has not been visited (vis[i] is False).
+#The __setitem__ method is a special method in Python that is called when you assign a value to an item using square brackets ([]). Here, vis seems to be a list-like object, and __setitem__ is used to set values at specific indices in this list-like object.
+
+
+def count_substrings(tiles):
+	se = dict() #initializes an empty dictionary se, which will be used to store unique combinations of tiles
+	vis = [False] * (len(tiles)) #this line initializes a list vis with False values, indicating that none of the tiles have been visited yet. The length of the list is equal to the length of the tiles string
+	#vis is a list representing whether each tile has been visited or not
+	recur(vis, "", tiles, se) #this line calls the recur function to start the recursive process of generating all possible combinations of tiles
+	return len(se) #after generating all unique combinations, this line returns the length of the se dictionary, which represents the total number of unique combinations
+
+if __name__ == '__main__':
+	example1 = "AAB"
+	example2 = "AAABBC"
+	example3 = "V"
+	print(count_substrings(example1))
+	print(count_substrings(example2))
+	print(count_substrings(example3))
