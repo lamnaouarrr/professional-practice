@@ -19,7 +19,7 @@ root.geometry("500x250")
 root.resizable(width=False, height=False)
 
 #load the custom icon
-icon_path = 'hourglass-outline.png'
+icon_path = 'C:/Users/ayoub/Desktop/CST Bachelor\'s degree at WIT/semester 6/professional practice/professional-practice-codes/Validation_Programming/hourglass-outline.png'
 icon_image = Image.open(icon_path)
 icon_photo = ImageTk.PhotoImage(icon_image)
 root.iconphoto(True, icon_photo)
@@ -29,7 +29,7 @@ canvas = tk.Canvas(root, width=500, height=250)
 canvas.pack(fill="both", expand=True)
 
 #load the background image
-bg_image = Image.open('hourglass-cyberpunk.png')
+bg_image = Image.open('C:/Users/ayoub/Desktop/CST Bachelor\'s degree at WIT/semester 6/professional practice/professional-practice-codes/Validation_Programming/hourglass-cyberpunk.png')
 bg_image = bg_image.resize((500, 250), Image.LANCZOS)  # Resize to match the canvas size
 
 #create a darker version of the image
