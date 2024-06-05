@@ -1,1 +1,1 @@
-dot(120, 'blue')
+root.resizable(None, None)

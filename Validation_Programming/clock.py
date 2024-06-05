@@ -14,9 +14,9 @@ def update_date_time():
 
 #create the main application window
 root = tk.Tk()
-root.title("CyberPunk Clock")
+root.title("CyberPunk Clock made by LAMNAOUAR Ayoub")
 root.geometry("500x250")
-root.resizable(width=False, height=False)
+root.resizable(False, False)
 
 #load the custom icon
 icon_path = 'C:/Users/ayoub/Desktop/CST Bachelor\'s degree at WIT/semester 6/professional practice/professional-practice-codes/Validation_Programming/hourglass-outline.png'

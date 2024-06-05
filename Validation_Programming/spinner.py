@@ -1,6 +1,5 @@
 import turtle
 from turtle import *
-from PIL import Image, ImageTk, ImageEnhance
 
 #define the spinner state
 state = {'turn': 0}
