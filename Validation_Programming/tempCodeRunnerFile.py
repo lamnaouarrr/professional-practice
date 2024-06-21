@@ -1,1 +1,1 @@
-root.resizable(None, None)
+from PIL import Image, ImageTk, ImageEnhance
